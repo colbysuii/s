@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Foods and Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #007bff;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        #switchBtn {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #switchBtn:hover {
+            background-color: #c82333;
+        }
+        .recipe {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            animation: fadeIn 1s ease;
+        }
+        .recipe h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .recipe p {
+            color: #333;
+        }
+        .back-btn {
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            border: 2px solid #007bff;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+  <script src="scripta.js"></script>
+    <header>
+        <h1>20 Popular Foods and Recipes</h1>
+        <button id="switchBtn" onclick="switchLanguage()">Switch Language</button>
+    </header>
+    <a href="index.html" class="back-btn">Back</a>
+    <div class="recipe">
+        <h2>Spaghetti Carbonara</h2>
+        <p><strong>Ingredients:</strong> Pasta, eggs, bacon, Parmesan cheese, black pepper</p>
+        <p><strong>Instructions:</strong> Boil pasta, fry bacon, mix eggs and cheese, combine with pasta</p>
+        <p><strong>Cost:</strong> $8-12 for a serving for four</p>
+    </div>
+    <div class="recipe">
+        <h2>Chicken Tikka Masala</h2>
+        <p><strong>Ingredients:</strong> Chicken, yogurt, tomato sauce, spices</p>
+        <p><strong>Instructions:</strong> Marinate chicken, grill, simmer in sauce</p>
+        <p><strong>Cost:</strong> $10-15 for a serving for four</p>
+    </div>
+    <div class="recipe">
+        <h2>Chocolate Chip Cookies</h2>
+        <p><strong>Ingredients:</strong> Flour, butter, sugar, chocolate chips</p>
+        <p><strong>Instructions:</strong> Cream butter and sugar, add dry ingredients, fold in chips, bake</p>
+        <p><strong>Cost:</strong> $5-8 for a batch of 24 cookies</p>
+    </div>
+    <div class="recipe">
+        <h2>Pizza Margherita</h2>
+        <p><strong>Ingredients:</strong> Pizza dough, tomato sauce, mozzarella cheese, basil</p>
+        <p><strong>Instructions:</strong> Stretch dough, spread sauce, add cheese and basil, bake</p>
+        <p><strong>Cost:</strong> $10-15 for a 12-inch pizza</p>
+    </div>
+    <div class="recipe">
+        <h2>Guacamole</h2>
+        <p><strong>Ingredients:</strong> Avocado, tomato, onion, lime, cilantro</p>
+        <p><strong>Instructions:</strong> Mash avocado, chop vegetables, mix with lime juice and cilantro</p>
+        <p><strong>Cost:</strong> $5-8 for a bowl</p>
+    </div>
+    <div class="recipe">
+        <h2>French Toast</h2>
+        <p><strong>Ingredients:</strong> Bread, eggs, milk, cinnamon, vanilla extract</p>
+        <p><strong>Instructions:</strong> Dip bread in egg mixture, fry until golden brown</p>
+        <p><strong>Cost:</strong> $3-5 for a serving for two</p>
+    </div>
+    <div class="recipe">
+        <h2>Caesar Salad</h2>
+        <p><strong>Ingredients:</strong> Romaine lettuce, croutons, Parmesan cheese, Caesar dressing</p>
+        <p><strong>Instructions:</strong> Toss lettuce with dressing, add croutons and cheese</p>
+        <p><strong>Cost:</strong> $6-10 for a serving for two</p>
+    </div>
+    <div class="recipe">
+        <h2>Hamburger</h2>
+        <p><strong>Ingredients:</strong> Ground beef, burger buns, lettuce, tomato, cheese</p>
+        <p><strong>Instructions:</strong> Form patties, grill, assemble with toppings</p>
+        <p><strong>Cost:</strong> $8-12 for a serving for two</p>
+    </div>
+    <div class="recipe">
+        <h2>Pad Thai</h2>
+        <p><strong>Ingredients:</strong> Rice noodles, shrimp, tofu, bean sprouts, peanuts, tamarind sauce</p>
+        <p><strong>Instructions:</strong> Soak noodles, stir-fry ingredients, add sauce and peanuts</p>
+        <p><strong>Cost:</strong> $10-15 for a serving for two</p>
+    </div>
+    <div class="recipe">
+        <h2>Caipirinha</h2>
+        <p><strong>Ingredients:</strong> Cachaça, lime, sugar</p>
+        <p><strong>Instructions:</strong> Muddle lime and sugar, add cachaça, stir</p>
+        <p><strong>Cost:</strong>

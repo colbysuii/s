@@ -1,3 +1,9 @@
+// Define global variables for customization options
+let speed = 1.0; // Default speed
+let pitch = 1.0; // Default pitch
+let voice = 'default'; // Default voice
+
+// Function to handle pronunciation with customization options
 function pronounceWord(word) {
     const wordInput = word || document.getElementById('wordInput').value;
 
@@ -6,8 +12,11 @@ function pronounceWord(word) {
         // Create a new SpeechSynthesisUtterance object
         const utterance = new SpeechSynthesisUtterance(wordInput);
 
-        // Set the language
+        // Set customization options
         utterance.lang = 'en-US';
+        utterance.rate = speed;
+        utterance.pitch = pitch;
+        utterance.voice = getVoice(voice);
 
         // Speak the word
         speechSynthesis.speak(utterance);
@@ -22,11 +31,19 @@ function pronounceWord(word) {
     }
 }
 
+// Function to get voice based on selected option
+function getVoice(selectedVoice) {
+    const availableVoices = speechSynthesis.getVoices();
+    return availableVoices.find(voice => voice.name === selectedVoice) || speechSynthesis.getVoices()[0];
+}
+
+// Function to display phonetic transcription
 function displayPhoneticTranscription(phoneticTranscription) {
     const phoneticTranscriptionElement = document.getElementById('phoneticTranscription');
     phoneticTranscriptionElement.innerText = `/${phoneticTranscription}/`;
 }
 
+// Function to display syllables
 function displaySyllables(syllables) {
     const syllablesElement = document.getElementById('syllables');
     syllablesElement.innerText = `Syllables: ${syllables.join('-')}`;

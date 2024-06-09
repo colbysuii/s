@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Colby James Fausnaught</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        img {
+            border-radius: 50%;
+            border: 5px solid #0072ff;
+            width: 150px; /* Set the width of the image */
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        h1 {
+            margin: 20px 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+        .text {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #555;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background: #0072ff;
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .links a:hover {
+            background: #00c6ff;
+            transform: scale(1.1);
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+        .back-button button {
+            background: #0072ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .back-button button:hover {
+            background: #00c6ff;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="hi.jpg" alt="Hi Image">
+        <h1>Creator, Colby James Fausnaught</h1>
+        <div class="text">I like FIFA</div>
+        <div class="links">
+            <a href="https://www.instagram.com/colbyfausnaught" target="_blank">Instagram</a>
+            <a href="https://www.snapchat.com/add/colby1136" target="_blank">Snapchat</a>
+        </div>
+        <div class="back-button">
+            <button onclick="window.history.back()">Back</button>
+        </div>
+    </div>
+</body>
+</html>
