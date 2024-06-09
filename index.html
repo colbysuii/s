@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Pronunciation Helper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>English Pronunciation Helper</h1>
+        <input type="text" id="wordInput" placeholder="Enter an English word">
+        <button onclick="pronounceWord()">Pronounce</button>
+        <audio id="audioPlayer" controls></audio>
+        <div id="phoneticTranscription"></div>
+        <div id="syllables"></div>
+        <div id="easyWords">
+            <h2>Easy to Pronounce Words</h2>
+            <button onclick="pronounceWord('hello')">Hello</button>
+            <button onclick="pronounceWord('world')">World</button>
+            <button onclick="pronounceWord('happy')">Happy</button>
+            <button onclick="pronounceWord('family')">Family</button>
+            <button onclick="pronounceWord('friend')">Friend</button>
+            <button onclick="pronounceWord('water')">Water</button>
+            <button onclick="pronounceWord('sky')">Sky</button>
+            <button onclick="pronounceWord('tree')">Tree</button>
+            <button onclick="pronounceWord('sun')">Sun</button>
+            <button onclick="pronounceWord('moon')">Moon</button>
+            <button onclick="pronounceWord('star')">Star</button>
+            <button onclick="pronounceWord('flower')">Flower</button>
+            <button onclick="pronounceWord('music')">Music</button>
+            <button onclick="pronounceWord('book')">Book</button>
+            <button onclick="pronounceWord('cat')">Cat</button>
+        </div>
+        <div id="hardWords">
+            <h2>Hard to Pronounce Words</h2>
+            <button onclick="pronounceWord('rural')">Rural</button>
+            <button onclick="pronounceWord('phenomenon')">Phenomenon</button>
+            <button onclick="pronounceWord('cinnamon')">Cinnamon</button>
+            <button onclick="pronounceWord('thorough')">Thorough</button>
+            <button onclick="pronounceWord('colonel')">Colonel</button>
+            <button onclick="pronounceWord('queue')">Queue</button>
+            <button onclick="pronounceWord('anemone')">Anemone</button>
+            <button onclick="pronounceWord('synecdoche')">Synecdoche</button>
+            <button onclick="pronounceWord('pneumonia')">Pneumonia</button>
+            <button onclick="pronounceWord('mnemonic')">Mnemonic</button>
+            <button onclick="pronounceWord('chaos')">Chaos</button>
+            <button onclick="pronounceWord('choir')">Choir</button>
+            <button onclick="pronounceWord('gnome')">Gnome</button>
+            <button onclick="pronounceWord('worcestershire')">Worcestershire</button>
+            <button onclick="pronounceWord('colonel')">Colonel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
