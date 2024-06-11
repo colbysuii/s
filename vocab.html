@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Words for Spanish Speakers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        li {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .definition {
+            display: none;
+            margin-top: 10px;
+        }
+        .back-btn {
+            margin-top: 20px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>English Words for Spanish Speakers</h1>
+    <ul id="wordList"></ul>
+
+    <div id="definitionContainer" class="definition">
+        <h2>Definition</h2>
+        <p><strong>English:</strong> <span id="englishDefinition"></span></p>
+        <p><strong>Spanish:</strong> <span id="spanishDefinition"></span></p>
+    </div>
+
+    <a href="index.html" class="back-btn">Back</a> <!-- Simple back button -->
+
+    <script>
+        const wordDefinitions = {
+            "hello": {
+                english: "an expression of greeting",
+                spanish: "una expresión de saludo"
+            },
+            "world": {
+                english: "the earth, together with all of its countries and peoples",
+                spanish: "la tierra, junto con todos sus países y pueblos"
+            },
+            "goodbye": {
+                english: "an expression of farewell",
+                spanish: "una expresión de despedida"
+            },
+            "thank you": {
+                english: "an expression of gratitude",
+                spanish: "una expresión de gratitud"
+            },
+            "please": {
+                english: "used to make a request more polite",
+                spanish: "usado para hacer una petición más educada"
+            },
+            "sorry": {
+                english: "an expression of apology or regret",
+                spanish: "una expresión de disculpa o arrepentimiento"
+            },
+            "yes": {
+                english: "an affirmative response",
+                spanish: "una respuesta afirmativa"
+            },
+            "no": {
+                english: "a negative response",
+                spanish: "una respuesta negativa"
+            },
+            "maybe": {
+                english: "a response indicating uncertainty",
+                spanish: "una respuesta que indica incertidumbre"
+            },
+            "now": {
+                english: "at the present time",
+                spanish: "en este momento"
+            },
+            "later": {
+                english: "at a future time",
+                spanish: "en un momento futuro"
+            },
+            "today": {
+                english: "the present day",
+                spanish: "el día de hoy"
+            },
+            "tomorrow": {
+                english: "the day following today",
+                spanish: "el día siguiente a hoy"
+            },
+            "yesterday": {
+                english: "the day preceding today",
+                spanish: "el día anterior a hoy"
+            },
+            "always": {
+                english: "at all times",
+                spanish: "siempre"
+            },
+            "never": {
+                english: "at no time",
+                spanish: "nunca"
+            },
+            "sometimes": {
+                english: "occasionally; on some occasions but not always",
+                spanish: "a veces; en algunas ocasiones pero no siempre"
+            },
+            "often": {
+                english: "frequently; many times",
+                spanish: "frecuentemente; muchas veces"
+            },
+            "rarely": {
+                english: "infrequently; not very often",
+                spanish: "raramente; no muy a menudo"
+            },
+            "soon": {
+                english: "in a short time; shortly",
+                spanish: "pronto; en poco tiempo"
+            },
+            "already": {
+                english: "by this or that time; previously; prior to or at some specified or implied time",
+                spanish: "ya; para este o aquel momento; anteriormente; antes o en algún momento especificado o implícito"
+            },
+            "yet": {
+                english: "up to the present or a specified time",
+                spanish: "todavía; hasta el presente o un momento especificado"
+            },
+            "still": {
+                english: "up to and including the present or a specified time; even now (or then) as formerly",
+                spanish: "todavía; hasta y incluyendo el presente o un momento especificado; incluso ahora (o entonces) como antes"
+            },
+            "again": {
+                english: "once more; one more time",
+                spanish: "otra vez; una vez más"
+            },
+            "first": {
+                english: "preceding all others in time or space; earliest; original; prime",
+                spanish: "primero; precediendo a todos los demás en tiempo o espacio; más temprano; original; principal"
+            },
+            "last": {
+                english: "coming after all others in time or order; final",
+                spanish: "último; viniendo después de todos los demás en tiempo o orden; final"
+            },
+            "next": {
+                english: "immediately following in time, order, importance, etc.; next; subsequent",
+                spanish: "próximo; inmediatamente siguiente en tiempo, orden, importancia, etc.; próximo; siguiente"
+            },
+            "far": {
+                english: "at or to a great distance",
+                spanish: "lejos; a gran distancia"
+            },
+            "near": {
+                english: "close; in close proximity",
+                spanish: "cerca; en proximidad cercana"
+            },
+            "here": {
+                english: "in this place; at this location",
+                spanish: "aquí; en este lugar"
+            },
+            "there": {
+                english: "in that place; at that location",
+                spanish: "allí; en ese lugar"
+            },
+            "everywhere": {
+                english: "in or to all places",
+                spanish: "en todas partes"
+            },
+            "nowhere": {
+                english: "in or to no place",
+                spanish: "en ningún lugar"
+            },
+            "everyone": {
+                english: "every person; everybody",
+                spanish: "todo el mundo; todos"
+            },
+            "nobody": {
+                english: "no person; no one",
+                spanish: "nadie; ninguna persona"
+            },
+            "someone": {
+                english: "an unknown or unspecified person; somebody",
+                spanish: "alguien; alguna persona desconocida o no especificada"
+            },
+            "something": {
+                english: "an unspecified or undetermined thing; some thing",
+                spanish: "algo; una cosa no especificada o no determinada"
+            },
+            "nothing": {
+                english: "not anything; no thing; no part",
+                spanish: "nada; ninguna cosa; ninguna parte"
+            },
+            "anything": {
+                english: "any object, event, action, etc., whatever",
+                spanish: "cualquier cosa; cualquier objeto, evento, acción, etc."
+            },
+            "anywhere": {
+                english: "in, at, or to any place",
+                spanish: "en, a, o a cualquier lugar"
+            },
+            "everywhere": {
+                english: "in, at, or to all places",
+                spanish: "en, a, o a todos los lugares"
+            },
+            "nowhere": {
+                english: "in, at, or to no place",
+                spanish: "en, a, o a ningún lugar"
+            },
+            "big": {
+                english: "large in size; of great dimensions",
+                spanish: "grande; de grandes dimensiones"
+            },
+            "small": {
+                english: "of limited size; of comparatively restricted dimensions; not big; little",
+                spanish: "pequeño; de tamaño limitado; de dimensiones comparativamente restringidas; no grande; poco"
+            },
+            "fast": {
+                english: "moving or able to move, operate, function, or take effect quickly; quick; swift; rapid",
+                spanish: "rápido; moviéndose o capaz de moverse, operar, funcionar o tomar efecto rápidamente; rápido; ágil; veloz"
+            },
+            "slow": {
+                english: "moving or proceeding with little or less than usual speed or velocity; characterized by lack of speed",
+                spanish: "lento; moviéndose o procediendo con poco o menos velocidad o velocidad usual; caracterizado por la falta de velocidad"
+            },
+            "hot": {
+                english: "having or giving off heat; having a high temperature",
+                spanish: "caliente; teniendo o desprendiendo calor; teniendo una temperatura alta"
+            },
+            "cold": {
+                english: "having a relatively low temperature; having little or no warmth",
+                spanish: "frío; teniendo una temperatura relativamente baja; teniendo poco o ningún calor"
+            },
+            "happy": {
+                english: "delighted, pleased, or glad, as over a particular thing",
+                spanish: "feliz; encantado, satisfecho o contento, como sobre una cosa particular"
+            },
+            "sad": {
+                english: "affected by unhappiness or grief; sorrowful or mournful",
+                spanish: "triste; afectado por la infelicidad o el dolor; afligido o lamentable"
+            },
+            "angry": {
+                english: "feeling or showing anger or strong resentment",
+                spanish: "enojado; sintiendo o mostrando ira o fuerte resentimiento"
+            },
+            "tired": {
+                english: "exhausted in strength, endurance, etc.; fatigued; weary",
+                spanish: "cansado; agotado en fuerza, resistencia, etc.; fatigado; cansado"
+            },
+            "hungry": {
+                english: "having a desire, craving, or need for food; feeling hunger",
+                spanish: "hambriento; teniendo un deseo, anhelo o necesidad de comida; sintiendo hambre"
+            },
+            "thirsty": {
+                english: "feeling or having thirst; craving liquid",
+                spanish: "sediento; sintiendo o teniendo sed; ansiando líquido"
+            },
+            "sleepy": {
+                english: "ready or inclined to sleep; drowsy",
+                spanish: "adormilado; listo o inclinado a dormir; soñoliento"
+            },
+            "awake": {
+                english: "to stop sleeping; to wake from sleep",
+                spanish: "despierto; dejar de dormir; despertar del sueño"
+            },
+            "busy": {
+                english: "actively and attentively engaged in work or a pastime",
+                spanish: "ocupado; activa y atentamente comprometido en el trabajo o un pasatiempo"
+            },
+            "bored": {
+                english: "to be weary by dullness, tedious repetition, unwelcome attentions, etc.",
+                spanish: "aburrido; estar cansado por la monotonía, la repetición tediosa, las atenciones no deseadas, etc."
+            },
+            "quiet": {
+                english: "making no noise or sound, especially no disturbing sound",
+                spanish: "tranquilo; no haciendo ningún ruido o sonido, especialmente ningún sonido perturbador"
+            },
+            "loud": {
+                english: "(of sound) strongly audible; having exceptional volume or intensity",
+                spanish: "ruidoso; (de sonido) fuertemente audible; teniendo un volumen o intensidad excepcional"
+            },
+            "bright": {
+                english: "radiating or reflecting light; shining; luminous; shining with intelligence; clever; witty",
+                spanish: "brillante; radiando o reflejando luz; brillante; luminoso; brillando con inteligencia; astuto; ingenioso"
+            },
+            "dark": {
+                english: "having very little or no light",
+                spanish: "oscuro; teniendo muy poca o ninguna luz"
+            },
+            "clean": {
+                english: "free from dirt; unsoiled; unstained",
+                spanish: "limpio; libre de suciedad; no manchado; sin manchas"
+            },
+            "dirty": {
+                english: "soiled with dirt; foul; unclean",
+                spanish: "sucio; manchado con suciedad; sucio; no limpio"
+            },
+            "easy": {
+                english: "not hard or difficult; requiring no great labor or effort",
+                spanish: "fácil; no duro o difícil; no requiere gran trabajo o esfuerzo"
+            },
+            "difficult": {
+                english: "not easy or simple; hard to understand, do, make, etc.",
+                spanish: "difícil; no fácil o simple; difícil de entender, hacer, crear, etc."
+            },
+            "new": {
+                english: "having but lately or but now come into view, being, or being made",
+                spanish: "nuevo; teniendo pero recientemente o pero ahora venido a la vista, siendo o siendo hecho"
+            },
+            "old": {
+                english: "far advanced in the years of one's or its life; having lived or existed long",
+                spanish: "viejo; muy avanzado en los años de uno o su vida; habiendo vivido o existido mucho tiempo"
+            },
+            "cheap": {
+                english: "costing very little; relatively low in price",
+                spanish: "barato; costando muy poco; relativamente bajo en precio"
+            },
+            "expensive": {
+                english: "entailing great expense; very high-priced; costing a lot of money",
+                spanish: "costoso; implicando un gran gasto; muy caro; costando mucho dinero"
+            },
+            "good": {
+                english: "morally excellent; virtuous; righteous; pious",
+                spanish: "bueno; moralmente excelente; virtuoso; justo; piadoso"
+            },
+            "bad": {
+                english: "not good in any manner or degree",
+                spanish: "malo; no bueno en ningún modo o grado"
+            },
+            "beautiful": {
+                english: "having beauty; possessing qualities that give great pleasure or satisfaction to see, hear, think about, etc.; delighting the senses or mind",
+                spanish: "hermoso; teniendo belleza; poseyendo cualidades que dan gran placer o satisfacción al ver, oír, pensar, etc.; deleitando los sentidos o la mente"
+            },
+            "ugly": {
+                english: "very unattractive or unpleasant to look at; offensive to the sense of beauty; displeasing in appearance",
+                spanish: "feo; muy poco atractivo o desagradable de ver; ofensivo al sentido de la belleza; desagradable en apariencia"
+            },
+            "simple": {
+                english: "easy to understand, deal with, use, etc.",
+                spanish: "simple; fácil de entender, tratar, usar, etc."
+            },
+            "complex": {
+                english: "composed of many interconnected parts; compound; composite",
+                spanish: "complejo; compuesto por muchas partes interconectadas; compuesto; compuesto"
+            },
+            "interesting": {
+                english: "engaging or exciting and holding the attention or curiosity",
+                spanish: "interesante; atractivo o emocionante y manteniendo la atención o la curiosidad"
+            },
+            "boring": {
+                english: "causing boredom; tiresome; dull",
+                spanish: "aburrido; causando aburrimiento; cansado; aburrido"
+            },
+            "calm": {
+                english: "without rough motion; still or nearly still",
+                spanish: "calmo; sin movimiento brusco; quieto o casi quieto"
+            }
+        };
+
+        const wordListElement = document.getElementById('wordList');
+        const definitionContainer = document.getElementById('definitionContainer');
+        const englishDefinitionSpan = document.getElementById('englishDefinition');
+        const spanishDefinitionSpan = document.getElementById('spanishDefinition');
+
+        Object.keys(wordDefinitions).forEach(word => {
+            const listItem = document.createElement('li');
+            listItem.textContent = word;
+            listItem.addEventListener('click', () => showDefinition(word));
+            wordListElement.appendChild(listItem);
+        });
+
+        function showDefinition(word) {
+            const definition = wordDefinitions[word];
+            englishDefinitionSpan.textContent = definition.english;
+            spanishDefinitionSpan.textContent = definition.spanish;
+            definitionContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
